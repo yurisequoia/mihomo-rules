@@ -32,6 +32,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update rules [$(TZ=Asia/Shanghai date +'%Y%m%d')TIME=$(TZ=Asia/Shanghai date +'%H%M')]"
+            CURRENT_TIME=$(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M')
+            git commit -m "Update rules $CURRENT_TIME"
             git push
           fi
